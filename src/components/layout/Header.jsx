@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "../ui/Container";
@@ -10,7 +10,70 @@ import { useDemoModal } from "@/context/DemoModalContext";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const { openDemoModal } = useDemoModal();
+
+  // Offset-aware smooth scroll handler: guarantees section heading is 100% visible below navbar
+  const handleNavClick = (e, href) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.replace("#", "");
+      setActiveSection(targetId);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        const headerEl = document.querySelector("header");
+        const headerHeight = headerEl ? headerEl.offsetHeight : 72;
+        const extraGap = 20; // 20px clean breathing space below navbar
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - (headerHeight + extraGap);
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: "smooth",
+        });
+
+        window.history.pushState(null, "", href);
+      }
+    }
+    setMobileMenuOpen(false);
+  };
+
+  // Scroll spy: automatically activates navbar tab as user scrolls through sections
+  useEffect(() => {
+    const sectionIds = NAV_LINKS.map((link) => link.href.replace("#", ""));
+
+    const handleScroll = () => {
+      const headerEl = document.querySelector("header");
+      const headerHeight = headerEl ? headerEl.offsetHeight : 72;
+      const scrollPosition = window.pageYOffset + headerHeight + 80;
+
+      // When near top (hero section), clear active tab
+      if (window.pageYOffset < 180) {
+        setActiveSection("");
+        return;
+      }
+
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const id = sectionIds[i];
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <header
@@ -22,6 +85,13 @@ export default function Header() {
           {/* Brand Logo */}
           <Link
             href="/"
+            onClick={(e) => {
+              if (window.location.pathname === "/") {
+                e.preventDefault();
+                setActiveSection("");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
             className="flex items-center gap-2 focus:outline-hidden group shrink-0"
             aria-label="WorkSensy Home — All-in-One Sales CRM"
           >
@@ -35,25 +105,36 @@ export default function Header() {
             />
           </Link>
 
-          {/* Desktop Navigation: Clean Pill Links (No Dropdowns) */}
+          {/* Desktop Navigation: Sequential Pill Links with Active State */}
           <nav
             aria-label="Main Navigation"
             itemScope
             itemType="https://schema.org/SiteNavigationElement"
-            className="hidden lg:flex items-center gap-2"
+            className="hidden lg:flex items-center gap-1 xl:gap-1.5"
           >
-            <ul className="flex items-center gap-2 m-0 p-0 list-none">
-              {NAV_LINKS.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    itemProp="url"
-                    className="navbar-pill"
-                  >
-                    <span itemProp="name">{link.label}</span>
-                  </Link>
-                </li>
-              ))}
+            <ul className="flex items-center gap-1 xl:gap-1.5 m-0 p-0 list-none">
+              {NAV_LINKS.map((link) => {
+                const sectionId = link.href.replace("#", "");
+                const isActive = activeSection === sectionId;
+
+                return (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      itemProp="url"
+                      data-active={isActive ? "true" : undefined}
+                      className={`navbar-pill ${
+                        isActive
+                          ? "!text-[#5b13ff] !border-[#5b13ff] !bg-[#f4effe] !font-semibold shadow-[0_2px_10px_rgba(91,19,255,0.14)]"
+                          : ""
+                      }`}
+                    >
+                      <span itemProp="name">{link.label}</span>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -100,17 +181,26 @@ export default function Header() {
           <div className="lg:hidden py-4 border-t border-[#f0edfa] animate-in fade-in slide-in-from-top-3">
             <nav aria-label="Mobile Navigation">
               <ul className="flex flex-col gap-1.5 list-none p-0 mb-4">
-                {NAV_LINKS.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-3 text-base font-medium text-[#0d0f19] hover:text-[#5b13ff] hover:bg-[#faf9ff] rounded-xl transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
+                {NAV_LINKS.map((link) => {
+                  const sectionId = link.href.replace("#", "");
+                  const isActive = activeSection === sectionId;
+
+                  return (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className={`block px-4 py-3 text-base rounded-xl transition-all ${
+                          isActive
+                            ? "text-[#5b13ff] bg-[#f4effe] font-semibold border border-[#e8ddfc]"
+                            : "text-[#0d0f19] hover:text-[#5b13ff] hover:bg-[#faf9ff]"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
 

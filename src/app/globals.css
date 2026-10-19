@@ -344,13 +344,21 @@ body {
   }
 }
 
-.navbar-pill:hover,
-.navbar-pill[data-active="true"] {
+.navbar-pill:hover {
   color: var(--color-secondary);
   border-color: rgba(91, 19, 255, 0.28);
   background-color: var(--color-bg-subtle);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(91, 19, 255, 0.08);
+}
+
+.navbar-pill[data-active="true"] {
+  color: #5b13ff !important;
+  border-color: #5b13ff !important;
+  background-color: #f4effe !important;
+  font-weight: 600 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 12px rgba(91, 19, 255, 0.16) !important;
 }
 
 .navbar-btn-login {

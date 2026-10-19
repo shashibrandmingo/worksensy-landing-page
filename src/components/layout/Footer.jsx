@@ -14,9 +14,9 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "Features", href: "#features" },
       { label: "CRM Solutions", href: "#solutions" },
+      { label: "How It Works", href: "#how-it-works" },
       { label: "Pricing", href: "#pricing" },
-      { label: "Integrations", href: "#integrations" },
-      { label: "Book Demo", href: "#demo" },
+      { label: "Book Demo", href: "#contact" },
     ],
   },
   {
@@ -32,21 +32,21 @@ const FOOTER_COLUMNS = [
   {
     title: "Resources",
     links: [
-      { label: "Help Center", href: "#help" },
-      { label: "FAQs", href: "#faq" },
-      { label: "Contact", href: "#contact" },
+      { label: "WorkSensy vs Others", href: "#comparison" },
+      { label: "How It Works", href: "#how-it-works" },
+      { label: "Contact Us", href: "#contact" },
       { label: "Privacy Policy", href: "#privacy" },
-      { label: "Terms", href: "#terms" },
+      { label: "Terms of Service", href: "#terms" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About WorkSensy", href: "#about" },
-      { label: "Why WorkSensy", href: "#why" },
-      { label: "Customer Stories", href: "#stories" },
+      { label: "About WorkSensy", href: "#solutions" },
+      { label: "Why WorkSensy", href: "#comparison" },
+      { label: "Pricing Plans", href: "#pricing" },
       { label: "Support", href: "#contact" },
-      { label: "Get Started", href: "#trial" },
+      { label: "Request Demo", href: "#contact" },
     ],
   },
 ];
