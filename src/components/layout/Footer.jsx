@@ -12,41 +12,40 @@ const FOOTER_COLUMNS = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "#features" },
-      { label: "CRM Solutions", href: "#solutions" },
-      { label: "How It Works", href: "#how-it-works" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "Book Demo", href: "#contact" },
+      { label: "Features", href: "/#features" },
+      { label: "CRM Solutions", href: "/#solutions" },
+      { label: "How It Works", href: "/#how-it-works" },
+      { label: "Pricing", href: "/#pricing" },
+      { label: "Book Demo", href: "/#contact" },
     ],
   },
   {
     title: "Use Cases",
     links: [
-      { label: "Agencies", href: "#solutions" },
-      { label: "Sales Teams", href: "#solutions" },
-      { label: "Consultants", href: "#solutions" },
-      { label: "Growing Businesses", href: "#solutions" },
-      { label: "Lead Management", href: "#features" },
+      { label: "Agencies", href: "/#solutions" },
+      { label: "Sales Teams", href: "/#solutions" },
+      { label: "Consultants", href: "/#solutions" },
+      { label: "Growing Businesses", href: "/#solutions" },
+      { label: "Lead Management", href: "/#features" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "WorkSensy vs Others", href: "#comparison" },
-      { label: "How It Works", href: "#how-it-works" },
-      { label: "Contact Us", href: "#contact" },
-      { label: "Privacy Policy", href: "#privacy" },
-      { label: "Terms of Service", href: "#terms" },
+      { label: "WorkSensy vs Others", href: "/#comparison" },
+      { label: "How It Works", href: "/#how-it-works" },
+      { label: "CRM Solutions", href: "/#solutions" },
+      { label: "Pricing Plans", href: "/#pricing" },
+      { label: "Contact Us", href: "/#contact" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About WorkSensy", href: "#solutions" },
-      { label: "Why WorkSensy", href: "#comparison" },
-      { label: "Pricing Plans", href: "#pricing" },
-      { label: "Support", href: "#contact" },
-      { label: "Request Demo", href: "#contact" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms of Service", href: "/terms-of-service" },
+      { label: "User Data Deletion", href: "/data-deletion" },
+      { label: "Security & Compliance", href: "/security-compliance" },
     ],
   },
 ];
@@ -227,45 +226,12 @@ export default function Footer() {
         </div>
 
         {/* =========================================================
-            COPYRIGHT & LEGAL ROW (Placed ABOVE Popular Searches)
+            COPYRIGHT ROW (Centered, Placed ABOVE Popular Searches)
            ========================================================= */}
-        <div className="border-t border-[#25265a]/70 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] text-[#aeb2ca]">
-          <p className="text-center sm:text-left">
+        <div className="border-t border-[#25265a]/70 py-6 flex items-center justify-center text-center text-[13px] text-[#aeb2ca]">
+          <p>
             &copy; {currentYear} WorkSensy. All rights reserved.
           </p>
-
-          <ul className="flex items-center text-[13px] text-[#aeb2ca]">
-            <li>
-              <Link
-                href="#privacy"
-                className="hover:text-white transition-colors"
-              >
-                Privacy
-              </Link>
-            </li>
-            <li className="px-4 text-[#3e4070]" aria-hidden="true">
-              |
-            </li>
-            <li>
-              <Link
-                href="#terms"
-                className="hover:text-white transition-colors"
-              >
-                Terms
-              </Link>
-            </li>
-            <li className="px-4 text-[#3e4070]" aria-hidden="true">
-              |
-            </li>
-            <li>
-              <Link
-                href="#cookies"
-                className="hover:text-white transition-colors"
-              >
-                Cookies
-              </Link>
-            </li>
-          </ul>
         </div>
 
         {/* =========================================================
@@ -286,7 +252,7 @@ export default function Footer() {
             {POPULAR_SEARCHES.map((term) => (
               <li key={term}>
                 <Link
-                  href="#features"
+                  href="/#features"
                   className="inline-flex items-center rounded-full border border-[#2c2d5f] bg-[#12133a]/80 px-4 py-1.5 text-[12px] font-medium text-[#c9cce2] transition-all duration-200 hover:border-[#8a2dfa] hover:bg-[#5b13ff]/20 hover:text-white"
                 >
                   {term}

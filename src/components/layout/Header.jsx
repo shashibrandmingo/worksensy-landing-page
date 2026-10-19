@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Container from "../ui/Container";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/constants/navigation";
 import { useDemoModal } from "@/context/DemoModalContext";
 
 export default function Header() {
+  const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const { openDemoModal } = useDemoModal();
@@ -16,6 +18,13 @@ export default function Header() {
   // Offset-aware smooth scroll handler: guarantees section heading is 100% visible below navbar
   const handleNavClick = (e, href) => {
     if (href.startsWith("#")) {
+      if (typeof window !== "undefined" && window.location.pathname !== "/") {
+        // When on a subpage like /privacy-policy, navigate to home with hash
+        router.push(`/${href}`);
+        setMobileMenuOpen(false);
+        return;
+      }
+
       e.preventDefault();
       const targetId = href.replace("#", "");
       setActiveSection(targetId);
@@ -41,6 +50,10 @@ export default function Header() {
 
   // Scroll spy: automatically activates navbar tab as user scrolls through sections
   useEffect(() => {
+    if (typeof window !== "undefined" && window.location.pathname !== "/") {
+      return;
+    }
+
     const sectionIds = NAV_LINKS.map((link) => link.href.replace("#", ""));
 
     const handleScroll = () => {
