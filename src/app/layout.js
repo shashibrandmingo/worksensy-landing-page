@@ -12,24 +12,38 @@ const poppins = Poppins({
 export const metadata = {
   metadataBase: new URL("https://worksensy.com"),
   title: {
-    default: "WorkSensy — All-in-One Sales CRM & Lead Management Platform",
-    template: "%s | WorkSensy CRM",
+    default:
+      "WorkSensy — Affordable Sales CRM & Lead Management Software",
+    template: "%s | WorkSensy — Affordable Sales CRM",
   },
   description:
-    "A powerful sales CRM and lead management platform to capture leads, automate follow-ups, schedule meetings, manage quotations & invoices, and keep your team aligned — all in one place.",
+    "WorkSensy is the most affordable sales CRM to capture Meta leads, automate follow-ups, schedule meetings, and close deals faster. Start your free trial today!",
+  applicationName: "WorkSensy CRM",
+  category: "Business & Productivity Software",
+  classification: "Affordable Sales CRM & Lead Automation Platform",
   keywords: [
-    "Sales CRM",
-    "Lead Management Software",
+    "Affordable Sales CRM",
+    "Best Affordable CRM",
+    "Affordable CRM for Small Business",
+    "Affordable CRM India",
+    "Affordable Lead Management Software",
+    "Budget Friendly Sales CRM",
+    "Low Cost Sales CRM",
+    "Sales CRM Software",
+    "Meta Lead Ads CRM",
+    "Facebook Lead Ads Integration",
+    "WhatsApp CRM Automation",
     "Automated Follow-ups",
-    "Meeting Scheduling",
-    "Client Database",
+    "Meeting Scheduling CRM",
+    "Quotation Management Software",
+    "Sales Pipeline Software",
+    "CRM for Agencies",
+    "CRM for Sales Teams",
     "WorkSensy CRM",
-    "Lead Capture Software",
-    "Sales Pipeline Management",
   ],
-  authors: [{ name: "WorkSensy Team", url: "https://worksensy.com" }],
-  creator: "WorkSensy",
-  publisher: "WorkSensy",
+  authors: [{ name: "WorkSensy Technologies", url: "https://worksensy.com" }],
+  creator: "WorkSensy Technologies",
+  publisher: "WorkSensy Technologies",
   robots: {
     index: true,
     follow: true,
@@ -41,59 +55,154 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: "https://worksensy.com",
+    languages: {
+      "en-IN": "https://worksensy.com",
+      "en-US": "https://worksensy.com",
+      "x-default": "https://worksensy.com",
+    },
+  },
   openGraph: {
-    title: "WorkSensy — Manage Leads, Track Sales & Grow Faster",
+    title:
+      "WorkSensy — Affordable Sales CRM & Lead Management Software",
     description:
-      "A powerful sales CRM and lead management platform built for modern sales teams, agencies, consultants, and growing businesses.",
+      "Looking for an affordable sales CRM? Capture Meta leads, automate follow-ups, schedule meetings, and accelerate deal closures with WorkSensy. Start free!",
     url: "https://worksensy.com",
     siteName: "WorkSensy",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/images/logo/Worksensy%20logo.png",
+        width: 1200,
+        height: 630,
+        alt: "WorkSensy — Affordable Sales CRM & Lead Management Software",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "WorkSensy — All-in-One Sales CRM",
+    title: "WorkSensy — Most Affordable Sales CRM",
     description:
-      "Capture leads, automate follow-ups, schedule meetings, and grow faster with WorkSensy.",
+      "The best affordable sales CRM for growing teams. Capture leads, automate follow-ups, and close more deals with WorkSensy.",
     creator: "@worksensy",
+    images: ["/images/logo/Worksensy%20logo.png"],
   },
-  alternates: {
-    canonical: "https://worksensy.com",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/images/logo/Worksensy%20logo.png",
   },
 };
 
 export const viewport = {
-  themeColor: "#8a2dfa",
+  themeColor: "#5b13ff",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
 };
 
 export default function RootLayout({ children }) {
-  // Structured Data (JSON-LD) for 100% SEO Rich Results
-  const jsonLd = {
+  // Rich Structured Data (JSON-LD) Graph for 100% Google Rich Results
+  const structuredDataGraph = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "WorkSensy",
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      description: "Free Trial Available",
-    },
-    description:
-      "A powerful sales CRM and lead management platform to capture leads, automate follow-ups, and keep your team aligned.",
-    url: "https://worksensy.com",
+    "@graph": [
+      // 1. Organization Schema
+      {
+        "@type": "Organization",
+        "@id": "https://worksensy.com/#organization",
+        name: "Worksensy Technologies",
+        url: "https://worksensy.com",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://worksensy.com/images/logo/Worksensy%20logo.png",
+          caption: "WorkSensy CRM Logo",
+        },
+        sameAs: [
+          "https://www.facebook.com/people/Worksensy/61591053419877/",
+          "https://www.instagram.com/worksensy/",
+          "https://www.linkedin.com/company/worksensy/",
+        ],
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            email: "support@worksensy.com",
+            contactType: "customer support",
+            availableLanguage: ["English", "Hindi"],
+          },
+        ],
+      },
+      // 2. WebSite with Sitelinks SearchBox Schema
+      {
+        "@type": "WebSite",
+        "@id": "https://worksensy.com/#website",
+        url: "https://worksensy.com",
+        name: "WorkSensy",
+        description:
+          "The most affordable sales CRM and lead management platform for modern businesses.",
+        publisher: {
+          "@id": "https://worksensy.com/#organization",
+        },
+      },
+      // 3. SoftwareApplication Schema
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://worksensy.com/#software",
+        name: "WorkSensy — Affordable Sales CRM",
+        applicationCategory: "BusinessApplication",
+        applicationSubCategory: "Affordable Sales CRM, Lead Automation, Sales Pipeline",
+        operatingSystem: "Web-based, Cloud, iOS, Android",
+        url: "https://worksensy.com",
+        description:
+          "An affordable sales CRM and lead management platform to capture leads from Meta Ads and websites, automate follow-ups, and manage pipelines.",
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.9",
+          ratingCount: "380",
+          bestRating: "5",
+          worstRating: "1",
+        },
+        offers: [
+          {
+            "@type": "Offer",
+            name: "Free Trial",
+            price: "0",
+            priceCurrency: "INR",
+            description: "14-Day Full Feature Free Trial",
+          },
+          {
+            "@type": "Offer",
+            name: "Starter Plan",
+            price: "4499",
+            priceCurrency: "INR",
+            description: "CRM for growing teams up to 5 users",
+          },
+          {
+            "@type": "Offer",
+            name: "Growth Plan",
+            price: "7999",
+            priceCurrency: "INR",
+            description: "CRM for high-velocity teams up to 10 users",
+          },
+        ],
+      },
+    ],
   };
 
   return (
     <html lang="en" className={poppins.variable}>
       <head>
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredDataGraph),
+          }}
         />
       </head>
       <body>
@@ -102,4 +211,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-

@@ -34,7 +34,7 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "WorkSensy vs Others", href: "/#comparison" },
       { label: "How It Works", href: "/#how-it-works" },
-      { label: "CRM Solutions", href: "/#solutions" },
+      { label: "Frequently Asked Questions", href: "/#faq" },
       { label: "Pricing Plans", href: "/#pricing" },
       { label: "Contact Us", href: "/#contact" },
     ],
@@ -147,7 +147,7 @@ export default function Footer() {
             >
               <Image
                 src="/images/logo/worksensy-white-logo.png"
-                alt="WorkSensy"
+                alt="WorkSensy — All-in-One Sales CRM &amp; Lead Management"
                 width={200}
                 height={52}
                 priority

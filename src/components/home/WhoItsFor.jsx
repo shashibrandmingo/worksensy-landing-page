@@ -59,7 +59,7 @@ export default function WhoItsFor() {
 
             <h2
               id="who-its-for-heading"
-              className="text-[28px] font-bold leading-[1.18] tracking-tight text-[#0d0f19] sm:text-[34px] lg:text-[40px]"
+              className="text-[24px] font-bold leading-[1.18] tracking-tight text-[#0d0f19] sm:text-[34px] lg:text-[40px]"
             >
               <span className="block">Built for teams that need</span>
               <span className="block text-[#5b13ff]">
@@ -67,38 +67,38 @@ export default function WhoItsFor() {
               </span>
             </h2>
 
-            <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-[#64748b] sm:text-[15px]">
+            <p className="mt-2.5 sm:mt-3 max-w-xl text-[13px] leading-relaxed text-[#64748b] sm:text-[15px]">
               Whether you handle inbound leads, sales follow-ups, meetings, or
               client management, WorkSensy helps you stay organized and close
               faster.
             </p>
           </header>
 
-          {/* Persona Cards */}
+          {/* Persona Cards: 2x2 on mobile (two-two), 4-cols on desktop */}
           <ul
             role="list"
-            className="mx-auto mt-8 grid max-w-[1100px] grid-cols-1 gap-4 min-[520px]:grid-cols-2 lg:mt-10 lg:grid-cols-4 lg:gap-5"
+            className="mx-auto mt-6 sm:mt-8 grid max-w-[1100px] grid-cols-2 gap-2.5 sm:gap-4 lg:mt-10 lg:grid-cols-4 lg:gap-5"
           >
             {PERSONAS.map((item) => {
               const Icon = item.icon;
               return (
                 <li key={item.id} className="flex">
-                  <article className="group flex w-full flex-col items-start rounded-[20px] border border-[#eeecf9] bg-white p-5 text-left shadow-[0_8px_28px_rgba(91,19,255,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(91,19,255,0.11)] lg:p-5 xl:p-6">
+                  <article className="group flex w-full flex-col items-start rounded-[16px] sm:rounded-[20px] border border-[#eeecf9] bg-white p-3.5 sm:p-5 text-left shadow-[0_4px_16px_rgba(91,19,255,0.05)] sm:shadow-[0_8px_28px_rgba(91,19,255,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(91,19,255,0.11)] lg:p-5 xl:p-6">
                     <div
-                      className={`mb-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105 ${item.iconBoxClass}`}
+                      className={`mb-2.5 sm:mb-4 flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-lg sm:rounded-xl transition-transform duration-300 group-hover:scale-105 ${item.iconBoxClass}`}
                     >
                       <Icon
-                        className="h-5 w-5"
+                        className="h-4.5 w-4.5 sm:h-5 sm:w-5"
                         strokeWidth={2}
                         aria-hidden="true"
                       />
                     </div>
 
-                    <h3 className="mb-1.5 text-[17px] font-bold leading-snug text-[#0d0f19] lg:text-[16px] xl:text-[17px]">
+                    <h3 className="mb-1 sm:mb-1.5 text-[14px] sm:text-[17px] font-bold leading-snug text-[#0d0f19] lg:text-[16px] xl:text-[17px]">
                       {item.title}
                     </h3>
 
-                    <p className="text-[13px] leading-[1.6] text-[#64748b]">
+                    <p className="text-[11.5px] sm:text-[13px] leading-[1.45] sm:leading-[1.6] text-[#64748b]">
                       {item.description}
                     </p>
                   </article>

@@ -135,7 +135,7 @@ export default function PricingSection() {
         {/* ================= HEADER ================= */}
         <header className="mx-auto mb-8 flex max-w-3xl flex-col items-center text-center sm:mb-10">
           <span className="mb-4 inline-flex items-center rounded-full border border-[#e9dcff] bg-[#f4effe] px-3.5 py-1 text-[11px] font-semibold uppercase tracking-widest text-[#5b13ff]">
-            Pricing
+            Affordable Pricing
           </span>
 
           <h2
@@ -149,7 +149,7 @@ export default function PricingSection() {
           </h2>
 
           <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-[#64748b] sm:text-[15px]">
-            Choose the right WorkSensy plan for your team size and sales
+            Choose the right affordable WorkSensy plan for your team size and sales
             workflow.
           </p>
         </header>

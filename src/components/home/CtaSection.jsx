@@ -32,7 +32,7 @@ export default function CtaSection() {
             </h2>
 
             <p className="text-base sm:text-lg text-purple-200/80 max-w-2xl mb-10 leading-relaxed">
-              Join thousands of modern sales leaders who trust WorkSensy to organize leads,
+              Join thousands of modern sales leaders who trust WorkSensy — the most affordable sales CRM to organize leads,
               automate follow-ups, and convert prospects into loyal clients.
             </p>
 

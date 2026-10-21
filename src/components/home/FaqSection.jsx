@@ -22,6 +22,11 @@ const FAQS = [
       "Yes, WorkSensy integrates directly with the official WhatsApp Business API to trigger automated welcome messages, meeting confirmations, quotation reminders, and pipeline follow-ups.",
   },
   {
+    question: "Why is WorkSensy the most affordable sales CRM for growing teams?",
+    answer:
+      "Unlike traditional enterprise CRMs that charge expensive per-seat fees and hidden onboarding costs, WorkSensy provides transparent, budget-friendly pricing designed specifically for growing businesses, startups, and agencies. You get full Meta Lead Ads integration, WhatsApp automation, and deal tracking at a fraction of the cost.",
+  },
+  {
     question: "Is there a free trial available?",
     answer:
       "Absolutely. We offer a 14-day free trial with full access to all premium features. No credit card is required to sign up.",
@@ -33,6 +38,19 @@ const FAQS = [
   },
 ];
 
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
@@ -41,7 +59,15 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="section-spacing bg-[#faf9ff]/70 border-t border-[#f0edfa]">
+    <section
+      id="faq"
+      aria-labelledby="faq-heading"
+      className="section-spacing scroll-mt-20 lg:scroll-mt-24 bg-[#faf9ff]/70 border-t border-[#f0edfa]"
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+      />
       <Container>
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <Badge icon={HelpCircle} className="mb-4">

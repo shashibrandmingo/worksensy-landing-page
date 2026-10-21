@@ -142,7 +142,7 @@ export default function Features() {
       <Container>
         <div className="relative z-10">
           {/* ================= HEADER ================= */}
-          <header className="mx-auto mb-8 flex max-w-3xl flex-col items-center text-center sm:mb-10">
+          <header className="mx-auto mb-6 sm:mb-8 flex max-w-3xl flex-col items-center text-center lg:mb-10">
             <div className="mb-3 flex items-center justify-center gap-3">
               <span aria-hidden="true" className="h-px w-8 bg-[#dcd4f5]" />
               <span className="text-[11px] font-semibold uppercase tracking-widest text-[#5b13ff]">
@@ -153,43 +153,43 @@ export default function Features() {
 
             <h2
               id="features-heading"
-              className="text-[26px] font-bold leading-[1.2] tracking-tight text-[#0d0f19] sm:text-[32px] lg:text-[38px]"
+              className="text-[24px] font-bold leading-[1.2] tracking-tight text-[#0d0f19] sm:text-[32px] lg:text-[38px]"
             >
               Key Features of WorkSensy Sales CRM
             </h2>
 
-            <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-[#64748b] sm:text-[15px]">
+            <p className="mt-2.5 sm:mt-3 max-w-2xl text-[13px] leading-relaxed text-[#64748b] sm:text-[15px] text-balance">
               Everything your team needs to capture leads, manage pipelines,
               follow up faster, and close more deals.
             </p>
           </header>
 
-          {/* ================= FEATURE CARDS (4 x 3) ================= */}
+          {/* ================= FEATURE CARDS (2x2 on Mobile, 4-Cols on Desktop) ================= */}
           <ul
             role="list"
-            className="mx-auto grid max-w-[1100px] grid-cols-1 gap-4 min-[520px]:grid-cols-2 lg:grid-cols-4 lg:gap-5"
+            className="mx-auto grid max-w-[1100px] grid-cols-2 gap-2.5 sm:gap-4 lg:grid-cols-4 lg:gap-5"
           >
             {FEATURES_LIST.map((item) => {
               const Icon = item.icon;
 
               return (
                 <li key={item.id} className="flex">
-                  <article className="group flex w-full flex-col items-start rounded-[20px] border border-[#eeecf9] bg-white p-5 text-left shadow-[0_6px_24px_rgba(91,19,255,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-[#d8c8fb] hover:bg-[#f8f5ff] hover:shadow-[0_14px_34px_rgba(91,19,255,0.1)] xl:p-6">
+                  <article className="group flex w-full flex-col items-start rounded-[16px] sm:rounded-[20px] border border-[#eeecf9] bg-white p-3.5 sm:p-5 text-left shadow-[0_4px_16px_rgba(91,19,255,0.04)] sm:shadow-[0_6px_24px_rgba(91,19,255,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-[#d8c8fb] hover:bg-[#f8f5ff] hover:shadow-[0_14px_34px_rgba(91,19,255,0.1)] xl:p-6">
                     <div
-                      className={`mb-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105 ${item.iconBoxClass}`}
+                      className={`mb-2.5 sm:mb-4 flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-lg sm:rounded-xl transition-transform duration-300 group-hover:scale-105 ${item.iconBoxClass}`}
                     >
                       <Icon
-                        className="h-5 w-5"
+                        className="h-4.5 w-4.5 sm:h-5 sm:w-5"
                         strokeWidth={2}
                         aria-hidden="true"
                       />
                     </div>
 
-                    <h3 className="mb-1.5 text-[16px] font-bold leading-snug text-[#0d0f19] xl:text-[17px]">
+                    <h3 className="mb-1 sm:mb-1.5 text-[14px] sm:text-[16px] font-bold leading-snug text-[#0d0f19] xl:text-[17px]">
                       {item.title}
                     </h3>
 
-                    <p className="text-[13px] leading-[1.6] text-[#64748b]">
+                    <p className="text-[11.5px] sm:text-[13px] leading-[1.45] sm:leading-[1.6] text-[#64748b]">
                       {item.description}
                     </p>
                   </article>

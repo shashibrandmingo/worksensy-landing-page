@@ -114,7 +114,7 @@ export default function HeroSection() {
                 className="w-3.5 h-3.5 fill-[#f59e0b] text-[#f59e0b] shrink-0"
                 aria-hidden="true"
               />
-              <span>ALL-IN-ONE SALES CRM</span>
+              <span>AFFORDABLE SALES CRM</span>
             </div>
 
             <h1 id="hero-heading" className="hero-main-title">
@@ -125,7 +125,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="hero-desc-text">
-              A powerful sales CRM and lead management platform to capture
+              A powerful, affordable sales CRM and lead management platform to capture
               leads, automate follow-ups, schedule meetings, manage quotations
               &amp; invoices, and keep your team aligned — all in one place.
             </p>

@@ -6,6 +6,7 @@ import Features from "@/components/home/Features";
 import ComparisonSection from "@/components/home/ComparisonSection";
 import PricingSection from "@/components/home/PricingSection";
 import BuiltForTeams from "@/components/home/BuiltForTeams";
+import FaqSection from "@/components/home/FaqSection";
 import DemoRequestSection from "@/components/home/DemoRequestSection";
 import Footer from "@/components/layout/Footer";
 
@@ -37,6 +38,9 @@ export default function Home() {
 
         {/* Built For Every Team: Built for teams of every size, across every industry */}
         <BuiltForTeams />
+
+        {/* FAQ Section with Google Rich Snippets Schema */}
+        <FaqSection />
 
         {/* Request a Free Demo / Sales Workflow Form */}
         <DemoRequestSection />

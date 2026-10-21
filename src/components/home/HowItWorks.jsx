@@ -43,16 +43,16 @@ const HOW_TO_JSON_LD = {
 };
 
 const CARD =
-  "group flex items-start gap-4 rounded-[20px] border border-[#eeecf9] bg-white p-5 shadow-[0_8px_28px_rgba(91,19,255,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(91,19,255,0.1)] sm:gap-5 sm:p-6 lg:p-5 xl:p-6";
+  "group flex items-start gap-3.5 sm:gap-5 rounded-[18px] sm:rounded-[20px] border border-[#eeecf9] bg-white p-4 sm:p-6 shadow-[0_8px_28px_rgba(91,19,255,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(91,19,255,0.1)] lg:p-5 xl:p-6";
 
 const STEP_NUMBER =
-  "flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#5b13ff] text-[17px] font-bold text-white shadow-[0_6px_18px_rgba(91,19,255,0.35)] sm:h-12 sm:w-12 sm:text-[18px]";
+  "flex h-9 w-9 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-[#5b13ff] text-[15px] sm:text-[18px] font-bold text-white shadow-[0_6px_18px_rgba(91,19,255,0.35)]";
 
 const CARD_TITLE =
-  "text-[17px] font-bold leading-snug text-[#0d0f19] sm:text-[19px] lg:text-[18px] xl:text-[19px]";
+  "text-[16px] sm:text-[19px] font-bold leading-snug text-[#0d0f19] lg:text-[18px] xl:text-[19px]";
 
 const CARD_DESC =
-  "mt-1 text-[13px] leading-relaxed text-[#64748b] sm:text-[14px]";
+  "mt-1 text-[12.5px] sm:text-[14px] leading-relaxed text-[#64748b]";
 
 export default function HowItWorks() {
   return (
@@ -94,9 +94,13 @@ export default function HowItWorks() {
               </span>
             </h2>
 
-            <p className="mt-3 max-w-md text-[14px] leading-relaxed text-[#64748b] sm:text-[15px] lg:mt-4">
-              Connect your website, Meta, and Justdial to capture and convert
-              leads faster.
+            <p className="mt-2.5 sm:mt-3 max-w-sm sm:max-w-md text-[13.5px] sm:text-[15px] leading-relaxed text-[#475569] sm:text-[#64748b] text-balance lg:mt-4">
+              <span className="block sm:inline">
+                Connect your website, Meta, and Justdial
+              </span>{" "}
+              <span className="block sm:inline">
+                to capture and convert leads faster.
+              </span>
             </p>
           </header>
 
@@ -118,28 +122,28 @@ export default function HowItWorks() {
                   <ul
                     role="list"
                     aria-label="Lead sources"
-                    className="mt-3.5 flex flex-wrap items-center gap-2"
+                    className="mt-3 sm:mt-3.5 flex flex-wrap items-center gap-1.5 sm:gap-2"
                   >
-                    <li className="inline-flex items-center gap-2 rounded-xl border border-[#e9dcff] bg-[#f4effe] px-3 py-1.5 text-[12px] font-semibold text-[#0d0f19]">
+                    <li className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl border border-[#e9dcff] bg-[#f4effe] px-2.5 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-[12px] font-semibold text-[#0d0f19]">
                       <Globe
-                        className="h-3.5 w-3.5 text-[#5b13ff]"
+                        className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#5b13ff]"
                         strokeWidth={2.2}
                         aria-hidden="true"
                       />
                       Website
                     </li>
-                    <li className="inline-flex items-center gap-2 rounded-xl border border-[#dbeafe] bg-[#eff6ff] px-3 py-1.5 text-[12px] font-semibold text-[#0d0f19]">
+                    <li className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl border border-[#dbeafe] bg-[#eff6ff] px-2.5 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-[12px] font-semibold text-[#0d0f19]">
                       <MetaInfinity
-                        className="h-4 w-4 text-[#0284c7]"
+                        className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#0284c7]"
                         strokeWidth={2.4}
                         aria-hidden="true"
                       />
                       Meta
                     </li>
-                    <li className="inline-flex items-center gap-2 rounded-xl border border-[#ffedd5] bg-[#fff7ed] px-3 py-1.5 text-[12px] font-semibold text-[#0d0f19]">
+                    <li className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl border border-[#ffedd5] bg-[#fff7ed] px-2.5 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-[12px] font-semibold text-[#0d0f19]">
                       <span
                         aria-hidden="true"
-                        className="flex h-4 w-4 items-center justify-center rounded-[4px] bg-[#ea580c] text-[9px] font-extrabold leading-none text-white"
+                        className="flex h-3.5 w-3.5 sm:h-4 sm:w-4 items-center justify-center rounded-[3px] sm:rounded-[4px] bg-[#ea580c] text-[8.5px] sm:text-[9px] font-extrabold leading-none text-white"
                       >
                         Jd
                       </span>
@@ -163,18 +167,18 @@ export default function HowItWorks() {
                   <ul
                     role="list"
                     aria-label="Lead stages"
-                    className="mt-3.5 flex flex-wrap items-center gap-2"
+                    className="mt-3 sm:mt-3.5 flex flex-wrap items-center gap-1.5 sm:gap-2"
                   >
-                    <li className="rounded-lg border border-[#dbeafe] bg-[#eff6ff] px-3 py-1 text-[12px] font-medium text-[#2563eb]">
+                    <li className="rounded-md sm:rounded-lg border border-[#dbeafe] bg-[#eff6ff] px-2.5 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-[12px] font-medium text-[#2563eb]">
                       New Lead
                     </li>
-                    <li className="rounded-lg border border-[#fde8c8] bg-[#fff7ed] px-3 py-1 text-[12px] font-medium text-[#d97706]">
+                    <li className="rounded-md sm:rounded-lg border border-[#fde8c8] bg-[#fff7ed] px-2.5 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-[12px] font-medium text-[#d97706]">
                       In Progress
                     </li>
-                    <li className="rounded-lg border border-[#ede9fe] bg-[#f4effe] px-3 py-1 text-[12px] font-medium text-[#7c3aed]">
+                    <li className="rounded-md sm:rounded-lg border border-[#ede9fe] bg-[#f4effe] px-2.5 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-[12px] font-medium text-[#7c3aed]">
                       Follow Up
                     </li>
-                    <li className="rounded-lg border border-[#d1fae5] bg-[#ecfdf5] px-3 py-1 text-[12px] font-medium text-[#16a34a]">
+                    <li className="rounded-md sm:rounded-lg border border-[#d1fae5] bg-[#ecfdf5] px-2.5 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-[12px] font-medium text-[#16a34a]">
                       Closed
                     </li>
                   </ul>
@@ -195,22 +199,22 @@ export default function HowItWorks() {
                   <ul
                     role="list"
                     aria-label="Outcomes"
-                    className="mt-3.5 flex flex-wrap items-center gap-2"
+                    className="mt-3 sm:mt-3.5 flex flex-wrap items-center gap-1.5 sm:gap-2"
                   >
-                    <li className="inline-flex items-center gap-1.5 rounded-xl border border-[#ede9fe] bg-[#f4effe] px-3 py-1.5 text-[12px] font-semibold text-[#5b13ff]">
+                    <li className="inline-flex items-center gap-1 sm:gap-1.5 rounded-lg sm:rounded-xl border border-[#ede9fe] bg-[#f4effe] px-2 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-[12px] font-semibold text-[#5b13ff]">
                       <Zap
-                        className="h-3.5 w-3.5 fill-current"
+                        className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-current"
                         aria-hidden="true"
                       />
-                      Faster Follow-ups
+                      <span>Faster Follow-ups</span>
                     </li>
-                    <li className="inline-flex items-center gap-1.5 rounded-xl border border-[#dbeafe] bg-[#eff6ff] px-3 py-1.5 text-[12px] font-semibold text-[#2563eb]">
-                      <Users2 className="h-3.5 w-3.5" aria-hidden="true" />
-                      Higher Conversions
+                    <li className="inline-flex items-center gap-1 sm:gap-1.5 rounded-lg sm:rounded-xl border border-[#dbeafe] bg-[#eff6ff] px-2 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-[12px] font-semibold text-[#2563eb]">
+                      <Users2 className="h-3 w-3 sm:h-3.5 sm:w-3.5" aria-hidden="true" />
+                      <span>Higher Conversions</span>
                     </li>
-                    <li className="inline-flex items-center gap-1.5 rounded-xl border border-[#d1fae5] bg-[#ecfdf5] px-3 py-1.5 text-[12px] font-semibold text-[#16a34a]">
-                      <TrendingUp className="h-3.5 w-3.5" aria-hidden="true" />
-                      Business Growth
+                    <li className="inline-flex items-center gap-1 sm:gap-1.5 rounded-lg sm:rounded-xl border border-[#d1fae5] bg-[#ecfdf5] px-2 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-[12px] font-semibold text-[#16a34a]">
+                      <TrendingUp className="h-3 w-3 sm:h-3.5 sm:w-3.5" aria-hidden="true" />
+                      <span>Business Growth</span>
                     </li>
                   </ul>
                 </div>
