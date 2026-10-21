@@ -90,8 +90,14 @@ export const metadata = {
     images: ["/images/logo/Worksensy%20logo.png"],
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/images/logo/Worksensy%20logo.png",
+    icon: [
+      { url: "/favicon.png?v=2", type: "image/png" },
+      { url: "/favicon.ico?v=2" },
+    ],
+    apple: [
+      { url: "/favicon.png?v=2", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.png?v=2",
   },
 };
 
@@ -192,6 +198,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={poppins.variable}>
       <head>
+        <link rel="icon" type="image/png" href="/favicon.png?v=2" />
+        <link rel="shortcut icon" href="/favicon.png?v=2" />
+        <link rel="apple-touch-icon" href="/favicon.png?v=2" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

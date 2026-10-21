@@ -133,8 +133,8 @@ export default function PricingSection() {
 
       <Container className="relative z-10">
         {/* ================= HEADER ================= */}
-        <header className="mx-auto mb-8 flex max-w-3xl flex-col items-center text-center sm:mb-10">
-          <span className="mb-4 inline-flex items-center rounded-full border border-[#e9dcff] bg-[#f4effe] px-3.5 py-1 text-[11px] font-semibold uppercase tracking-widest text-[#5b13ff]">
+        <header className="mx-auto mb-6 flex max-w-3xl flex-col items-center text-center sm:mb-10">
+          <span className="mb-3 inline-flex items-center rounded-full border border-[#e9dcff] bg-[#f4effe] px-3.5 py-1 text-[11px] font-semibold uppercase tracking-widest text-[#5b13ff] sm:mb-4">
             Affordable Pricing
           </span>
 
@@ -157,7 +157,7 @@ export default function PricingSection() {
         {/* ================= PRICING CARDS ================= */}
         <ul
           role="list"
-          className="mx-auto grid max-w-[1100px] grid-cols-1 items-stretch gap-4 min-[560px]:grid-cols-2 lg:grid-cols-4 lg:gap-5"
+          className="mx-auto grid max-w-[1100px] grid-cols-1 items-stretch gap-3 min-[560px]:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-5"
         >
           {PRICING_PLANS.map((plan) => {
             const Icon = plan.icon;
@@ -165,7 +165,7 @@ export default function PricingSection() {
             return (
               <li key={plan.id} className="flex">
                 <article
-                  className={`relative flex w-full flex-col justify-between rounded-[20px] p-5 transition-all duration-300 xl:p-6 ${
+                  className={`relative flex w-full flex-col justify-between rounded-[18px] p-3.5 transition-all duration-300 sm:rounded-[20px] sm:p-5 xl:p-6 ${
                     plan.isPopular
                       ? "border-2 border-[#bca5f8] bg-[#faf7ff] shadow-[0_16px_40px_rgba(91,19,255,0.14)] hover:shadow-[0_20px_48px_rgba(91,19,255,0.2)] lg:-translate-y-1.5"
                       : "border border-[#eeecf9] bg-white shadow-[0_6px_24px_rgba(15,23,42,0.05)] hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(91,19,255,0.1)]"
@@ -173,63 +173,74 @@ export default function PricingSection() {
                 >
                   {/* Popular badge */}
                   {plan.isPopular && (
-                    <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#5b13ff] to-[#8a2dfa] px-2.5 py-1 text-[10.5px] font-semibold tracking-wide text-white shadow-sm">
-                      <Crown
-                        className="h-3 w-3"
-                        strokeWidth={2.2}
-                        aria-hidden="true"
-                      />
-                      {plan.badge}
-                    </span>
+                    <div className="mb-2 flex justify-start sm:absolute sm:right-4 sm:top-4 sm:mb-0 sm:block">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#5b13ff] to-[#8a2dfa] px-2 py-0.5 text-[10px] font-semibold tracking-wide text-white shadow-sm sm:px-2.5 sm:py-1 sm:text-[10.5px]">
+                        <Crown
+                          className="h-2.5 w-2.5 sm:h-3 sm:w-3"
+                          strokeWidth={2.2}
+                          aria-hidden="true"
+                        />
+                        {plan.badge}
+                      </span>
+                    </div>
                   )}
 
                   <div>
-                    {/* Icon */}
-                    <div
-                      className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl ${
-                        plan.isPopular
-                          ? "bg-[#ede4ff] text-[#5b13ff]"
-                          : "bg-[#f4effe] text-[#6d28d9]"
-                      }`}
-                    >
-                      <Icon
-                        className="h-[18px] w-[18px]"
-                        strokeWidth={2.2}
-                        aria-hidden="true"
-                      />
+                    {/* Header Block: Compact horizontal on mobile / Stacked on desktop */}
+                    <div className="flex items-center justify-between gap-3 sm:block">
+                      {/* Left: Icon + Name & Mobile Audience */}
+                      <div className="flex items-center gap-2.5 sm:block">
+                        <div
+                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl sm:mb-4 sm:h-10 sm:w-10 ${
+                            plan.isPopular
+                              ? "bg-[#ede4ff] text-[#5b13ff]"
+                              : "bg-[#f4effe] text-[#6d28d9]"
+                          }`}
+                        >
+                          <Icon
+                            className="h-4 w-4 sm:h-[18px] sm:w-[18px]"
+                            strokeWidth={2.2}
+                            aria-hidden="true"
+                          />
+                        </div>
+
+                        <div>
+                          <h3 className="text-[15px] font-bold tracking-tight text-[#0d0f19] sm:text-[18px]">
+                            {plan.name}
+                          </h3>
+                          <p className="text-[11.5px] font-medium text-[#64748b] sm:hidden">
+                            {plan.audience}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Right on mobile / Below on desktop: Price & Desktop Audience */}
+                      <div className="text-right sm:text-left">
+                        <p className="text-[20px] font-extrabold leading-none tracking-tight text-[#0d0f19] sm:mt-1.5 sm:text-[32px]">
+                          {plan.price}
+                        </p>
+                        <p className="mt-1.5 hidden min-h-[20px] text-[12.5px] font-medium text-[#64748b] sm:block sm:text-[13px]">
+                          {plan.audience}
+                        </p>
+                      </div>
                     </div>
 
-                    {/* Name */}
-                    <h3 className="text-[17px] font-bold tracking-tight text-[#0d0f19] sm:text-[18px]">
-                      {plan.name}
-                    </h3>
-
-                    {/* Price */}
-                    <p className="mt-1.5 text-[30px] font-extrabold leading-none tracking-tight text-[#0d0f19] sm:text-[32px]">
-                      {plan.price}
-                    </p>
-
-                    {/* Audience */}
-                    <p className="mt-1.5 min-h-[20px] text-[12.5px] font-medium text-[#64748b] sm:text-[13px]">
-                      {plan.audience}
-                    </p>
-
                     <div
-                      className="my-4 border-t border-[#f1f0f7]"
+                      className="my-2.5 border-t border-[#f1f0f7] sm:my-4"
                       aria-hidden="true"
                     />
 
                     {/* Features */}
-                    <ul role="list" className="space-y-2.5">
+                    <ul role="list" className="space-y-1.5 sm:space-y-2.5">
                       {plan.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-2.5">
+                        <li key={feature} className="flex items-center gap-2 sm:items-start sm:gap-2.5">
                           <span
                             aria-hidden="true"
-                            className="mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full bg-[#f1eafe] text-[#7c3aed]"
+                            className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#f1eafe] text-[#7c3aed] sm:mt-0.5 sm:h-[18px] sm:w-[18px]"
                           >
-                            <Check className="h-2.5 w-2.5" strokeWidth={3} />
+                            <Check className="h-2 w-2 sm:h-2.5 sm:w-2.5" strokeWidth={3} />
                           </span>
-                          <span className="text-[13px] leading-snug text-[#475569]">
+                          <span className="text-[12px] leading-tight text-[#475569] sm:text-[13px] sm:leading-snug">
                             {feature}
                           </span>
                         </li>
@@ -238,7 +249,7 @@ export default function PricingSection() {
                   </div>
 
                   {/* CTA */}
-                  <div className="mt-6">
+                  <div className="mt-3.5 sm:mt-6">
                     <button
                       type="button"
                       onClick={() =>
@@ -251,7 +262,7 @@ export default function PricingSection() {
                         })
                       }
                       aria-label={`${plan.ctaText} - ${plan.name} plan`}
-                      className={`flex w-full items-center justify-center gap-1.5 rounded-xl px-4 py-2.5 text-center text-[13.5px] font-semibold transition-all duration-200 cursor-pointer ${
+                      className={`flex w-full items-center justify-center gap-1.5 rounded-lg px-4 py-2 text-center text-[12.5px] font-semibold transition-all duration-200 cursor-pointer sm:rounded-xl sm:py-2.5 sm:text-[13.5px] ${
                         plan.isPopular
                           ? "bg-gradient-to-r from-[#5b13ff] to-[#8a2dfa] text-white shadow-[0_8px_20px_rgba(91,19,255,0.3)] hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(91,19,255,0.4)] hover:brightness-110"
                           : "border border-[#ebdfff] bg-[#f8f5ff] text-[#5b13ff] hover:border-[#dbc8ff] hover:bg-[#ede4ff]"
@@ -260,7 +271,7 @@ export default function PricingSection() {
                       <span>{plan.ctaText}</span>
                       {plan.isPopular && (
                         <ArrowRight
-                          className="h-4 w-4"
+                          className="h-3.5 w-3.5 sm:h-4 sm:w-4"
                           strokeWidth={2.2}
                           aria-hidden="true"
                         />

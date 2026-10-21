@@ -10,12 +10,17 @@ export default function manifest() {
     theme_color: "#5b13ff",
     icons: [
       {
-        src: "/favicon.ico",
+        src: "/favicon.png?v=2",
         sizes: "any",
-        type: "image/x-icon",
+        type: "image/png",
       },
       {
-        src: "/images/logo/Worksensy logo.png",
+        src: "/favicon.png?v=2",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        src: "/favicon.png?v=2",
         sizes: "512x512",
         type: "image/png",
       },
